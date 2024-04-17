@@ -35,21 +35,26 @@ Step 3: Repeat the  iteration  until the losses become constant and  minimum<BR>
     (v)  Append the losses in a list <BR>
 Step 4 : Test for the XOR patterns.
 
-<H3>Program:</H3>
+##Program:
 ```
+
+
 import numpy as np
 import pandas as pd
 import io
 import matplotlib.pyplot as plt
-# Initialize the input vector and output vector for XOR
+
+#Initialize the input vector and output vector for XOR
 x=np.array([[0,0,1,1],[0,1,0,1]])
 y=np.array([[0,1,1,0]])
+
 #Initialize the structure of  MLP with input ,hidden  and output layer
 n_x = 2
 n_y = 1
 n_h = 2
 m = x.shape[1]
-lr = 0.1 
+lr = 0.1
+
 # Weight matrix for hidden layer randomly
 w1 = np.random.rand(n_h,n_x)   # Weight matrix for hidden layer
 w2 = np.random.rand(n_y,n_h)  # Weight matrix for output layer
@@ -79,6 +84,7 @@ for i in range(iterations):
   da2,dw2,dz1,dw1 = back_prop(m,w1,w2,z1,a1,z2,a2,y)
   w2 = w2-lr*dw2
   w1 = w1-lr*dw1
+
 # We plot losses to see how our network is doing
 plt.plot(losses)
 plt.xlabel("EPOCHS")
@@ -99,11 +105,15 @@ test=np.array([[0],[1]])
 predict(w1,w2,test)
 test=np.array([[0],[0]])
 predict(w1,w2,test)
+
 ```
-<H3>Output:</H3>
+
+
+## Output:
 
 ![image](https://github.com/arshatha-palanivel/Ex-3-NN/assets/118682484/755200f8-f263-4b2d-ae1e-e1f3e2b8a360)
 ![image](https://github.com/arshatha-palanivel/Ex-3-NN/assets/118682484/6d6df308-21ef-4646-a024-1d814e5d866a)
 
-<H3> Result:</H3>
-Thus, XOR classification problem can be solved using MLP in Python 
+
+## Result:
+Thus, XOR classification problem can be solved using MLP in Python .
